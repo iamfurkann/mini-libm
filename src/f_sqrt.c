@@ -1,4 +1,4 @@
-#include "math.h"
+#include "f_math.h"
 #include <stdio.h>
 
 static double f_tahmin(double arg)
@@ -23,10 +23,13 @@ static double f_tahmin(double arg)
 double f_sqrt(double arg)
 {
     double x = f_tahmin(arg);
-    int i = 0;
-    for (i = 0; i < 5; i++)
+    double eski_x = 0.0;
+
+    double tolerans = 0.000001;
+    while (f_fabs((x - eski_x) / x) > tolerans)
     {
-        x = (x + (arg/x)) / 2;
+        eski_x = x;
+        x = (x + (arg/x)) / 2; 
     }
     return (x);
 }

@@ -5,19 +5,7 @@
 int main()
 {
 
-    double a = -4;
-    printf("sayi sqrt: %f\n", f_sqrt(a));
-    printf("sayi sqrt: %f\n", sqrt(a));
-    printf("----------------------------\n");
-    a = 0;
-    printf("sayi sqrt: %f\n", f_sqrt(a));
-    printf("sayi sqrt: %f\n", sqrt(a));
-    printf("----------------------------\n");
-    a = 1e308;
-    printf("sayi sqrt: %f\n", f_sqrt(a));
-    printf("sayi sqrt: %f\n", sqrt(a));
-    printf("----------------------------\n");
-    a = 0.00001;
+    double a = 1000;
     printf("sayi sqrt: %f\n", f_sqrt(a));
     printf("sayi sqrt: %f\n", sqrt(a));
     printf("----------------------------\n");
