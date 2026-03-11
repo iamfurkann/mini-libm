@@ -1,34 +1,27 @@
 #include "f_math.h"
-#include <stdio.h>
 
-static double f_tahmin(double arg)
+static double f_guess(double arg)
 {
-    float kucuk = 0, buyuk = 0;
-
-    for (int i = 0; i <= arg; i++)
-    {
-        if (i*i > arg)
-            buyuk = i;
-        if (kucuk <= arg && buyuk*buyuk >= arg)
-        {
-            buyuk = (kucuk + buyuk) / 2;
-            break;
-        }
-        kucuk = i;
-    }
-
-    return (buyuk);
+    if (arg < 1.0)
+        return 1.0;
+    return arg / 2;
 }
 
 double f_sqrt(double arg)
 {
-    double x = f_tahmin(arg);
-    double eski_x = 0.0;
+    if (arg < 0.0)
+        return make_nan();
 
-    double tolerans = 0.000001;
-    while (f_fabs((x - eski_x) / x) > tolerans)
+    if (arg == 0.0 || arg == 1.0)
+        return arg;
+
+    double x = f_guess(arg);
+    double old_x = 0.0;
+
+    double tolerance = 1e-15;
+    while (f_fabs((x - old_x) / x) > tolerance)
     {
-        eski_x = x;
+        old_x = x;
         x = (x + (arg/x)) / 2; 
     }
     return (x);

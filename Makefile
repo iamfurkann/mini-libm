@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = \
 	src/f_fabs.c \
-	src/f_sqrt.c
+	src/f_sqrt.c \
+	src/f_nan.c
 
 OBJ = $(SRC:.c=.o)
 
