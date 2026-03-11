@@ -4,7 +4,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = \
-	src/f_abs.c
+	src/f_fabs.c \
+	src/f_sqrt.c
 
 OBJ = $(SRC:.c=.o)
 
